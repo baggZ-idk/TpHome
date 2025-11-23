@@ -14,6 +14,11 @@ namespace test
     {
         GameObject quitbox;
         Rigidbody PlayerRB;
+        public static bool enabled = true;
+
+        public void OnEnable() { enabled = true; }
+
+        public void OnDisable() { enabled = false; }
         void Start()
         {
             GorillaTagger.OnPlayerSpawned(OnGameInitialized);
@@ -41,7 +46,8 @@ namespace test
     {
         public Rigidbody PlayerRB;
         public override void OnBoxTriggered()
-        {
+        {   
+            if (!Plugin.enabled) {  return; }
             PlayerRB.velocity = Vector3.zero;
             GorillaLocomotion.GTPlayer.Instance.GetComponent<Rigidbody>().transform.parent.position = new Vector3(-66.4736f, 12.7625f, -82.3621f);
             GorillaLocomotion.GTPlayer.Instance.GetComponent<Rigidbody>().transform.localPosition = Vector3.zero;
