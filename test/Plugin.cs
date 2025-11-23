@@ -25,24 +25,6 @@ namespace test
             quitbox.transform.localScale = new Vector3(9999999999, 247, 9999999999);
             PlayerRB = GorillaTagger.Instance.rigidbody;
         }
-
-        void Update()
-        {
-            if (PlayerRB.gameObject.transform.position.y > 5000 || PlayerRB.gameObject.transform.position.y < -5000f)
-            {
-                quitbox.GetComponent<Tphome>().OnBoxTriggered();
-            }
-            if (PlayerRB.gameObject.transform.position.x > 5000 || PlayerRB.gameObject.transform.position.x < -5000f)
-            {
-                quitbox.GetComponent<Tphome>().OnBoxTriggered();
-            }
-            if (PlayerRB.gameObject.transform.position.z > 5000 || PlayerRB.gameObject.transform.position.z < -5000f)
-            {
-                quitbox.GetComponent<Tphome>().OnBoxTriggered();
-            }
-
-        }
-
     }
     [HarmonyPatch(typeof(GorillaQuitBox))]
     [HarmonyPatch("Start")]
@@ -83,6 +65,29 @@ namespace test
         {
             PlayerRB = PlayerRB = GorillaTagger.Instance.rigidbody;
             Destroy(gameObject.GetComponent<GorillaQuitBox>());
+        }
+
+        void Update()
+        {
+            if (PlayerRB.gameObject.transform.position.y > 5000 || PlayerRB.gameObject.transform.position.y < -5000f)
+            {
+                OnBoxTriggered();
+            }
+            if (PlayerRB.gameObject.transform.position.x > 5000 || PlayerRB.gameObject.transform.position.x < -5000f)
+            {
+                OnBoxTriggered();
+            }
+            if (PlayerRB.gameObject.transform.position.z > 5000 || PlayerRB.gameObject.transform.position.z < -5000f)
+            {
+                OnBoxTriggered();
+            }
+            if (ControllerInputPoller.instance.leftControllerPrimaryButton &&
+                ControllerInputPoller.instance.rightControllerPrimaryButton &&
+                ControllerInputPoller.instance.leftControllerSecondaryButton &&
+                ControllerInputPoller.instance.rightControllerSecondaryButton)
+            {
+                OnBoxTriggered();
+            }
         }
     }
 }
