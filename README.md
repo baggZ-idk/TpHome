@@ -1,5 +1,5 @@
 # TpHome
-This mod allows user(s) to be bought back "Home"(stump) when out of the map. To proform a manual override you must press a, b, x, y, left grip, right grip, left trigger, right trigger. If you are NOT in a modded lobby & you fall out of the map you will be automatically disconected from the lobby you are in, this is so its not a "cheat".
+This mod allows user(s) to be bought back "Home"(stump) when out of the map. To proform a manual override you must press a, b, x, & y. If you are NOT in a modded lobby & you fall out of the map you will be automatically disconected from the lobby you are in, this is so its not a "cheat".
 
 
 ## Disclaimer
