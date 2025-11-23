@@ -90,11 +90,7 @@ namespace test
             if (ControllerInputPoller.instance.leftControllerPrimaryButton &&
                 ControllerInputPoller.instance.rightControllerPrimaryButton &&
                 ControllerInputPoller.instance.leftControllerSecondaryButton &&
-                ControllerInputPoller.instance.rightControllerSecondaryButton &&
-                ControllerInputPoller.instance.leftGrab &&
-                ControllerInputPoller.instance.rightGrab &&
-                ControllerInputPoller.instance.leftControllerTriggerButton &&
-                ControllerInputPoller.instance.rightControllerTriggerButton)
+                ControllerInputPoller.instance.rightControllerSecondaryButton)
             {
                 OnBoxTriggered();
             }
